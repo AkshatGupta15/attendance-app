@@ -36,23 +36,23 @@ class _CreateSubEventPageState extends State<CreateSubEventPage> {
     return FScaffold(
       header: FHeader.nested(
         title: const Text('Create Sub Event'),
-        prefixActions: [
+        prefixes: [
           FHeaderAction.back(onPress: () {
             Navigator.pop(context);
           }),
         ],
-        suffixActions: [
+        suffixes: [
           FHeaderAction(
-            icon: FIcon(FAssets.icons.search),
+            icon: const  Icon(FIcons.search) ,
             onPress: () {},
           ),
           FHeaderAction(
-            icon: FIcon(FAssets.icons.plus),
+            icon: const  Icon(FIcons.plus) ,
             onPress: () {},
           ),
         ],
       ),
-      content: Padding(
+      child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

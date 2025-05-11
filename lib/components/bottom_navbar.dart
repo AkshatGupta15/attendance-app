@@ -19,19 +19,19 @@ class BottomNavBar extends StatelessWidget {
       onChange: onTabChange, // Pass index change to parent widget
       children: [
         FBottomNavigationBarItem(
-          icon: FIcon(FAssets.icons.housePlug),
+          icon: Icon(FIcons.housePlug),
           label: const Text('Home'),
         ),
         FBottomNavigationBarItem(
-          icon: FIcon(FAssets.icons.search),
+          icon: Icon(FIcons.search),
           label: const Text('Events'),
         ),
         FBottomNavigationBarItem(
-          icon: FIcon(FAssets.icons.calendar),
+          icon: Icon(FIcons.calendar),
           label: const Text('Schedule'),
         ),
         FBottomNavigationBarItem(
-          icon: FIcon(FAssets.icons.user),
+          icon: Icon(FIcons.user),
           label: const Text('Profile'),
         ),
       ],

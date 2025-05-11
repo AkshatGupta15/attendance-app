@@ -13,14 +13,14 @@ class SubEventDetailsPage extends StatelessWidget {
     return FScaffold(
       header: FHeader.nested(
         title: const Text('Sub-Event Details'),
-        prefixActions: [
+        prefixes: [
           FHeaderAction.back(
             onPress: () {
               Navigator.pop(context);
             },
           ),
         ],
-        suffixActions: [
+        suffixes: [
           // Three Dots Icon with Popup Menu
           Theme(
             data: Theme.of(context).copyWith(
@@ -33,7 +33,7 @@ class SubEventDetailsPage extends StatelessWidget {
     ),
   ),
             child: PopupMenuButton<String>(
-              icon: FIcon(FAssets.icons.ellipsisVertical), // Three dots icon
+              icon: Icon(FIcons.ellipsisVertical), // Three dots icon
               itemBuilder: (context) => [
                 const PopupMenuItem<String>(
                   value: 'edit',
@@ -69,7 +69,7 @@ class SubEventDetailsPage extends StatelessWidget {
           ),
         ],
       ),
-      content: SingleChildScrollView(
+      child: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,19 +151,19 @@ class SubEventDetailsPage extends StatelessWidget {
         children: [
           const SizedBox(height: 16),
           _buildDetailRow(
-            icon: FIcon(FAssets.icons.calendar),
+            icon: Icon(FIcons.calendar),
             label: 'Date',
             value: subEventDetails['date']!,
           ),
           const SizedBox(height: 8),
           _buildDetailRow(
-            icon: FIcon(FAssets.icons.clock),
+            icon: Icon(FIcons.clock),
             label: 'Time',
             value: subEventDetails['time']!,
           ),
           const SizedBox(height: 8),
           _buildDetailRow(
-            icon: FIcon(FAssets.icons.locate),
+            icon: Icon(FIcons.locate),
             label: 'Location',
             value: subEventDetails['location']!,
           ),

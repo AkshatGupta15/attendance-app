@@ -1,4 +1,4 @@
-import 'package:attendance_app/screens/user_events.dart';
+import 'package:attendance_app/screens/user/user_events.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

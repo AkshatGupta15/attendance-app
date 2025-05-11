@@ -36,7 +36,7 @@ class _AdminEventsPageState extends State<AdminEventsPage> {
     return FScaffold(
       header: FHeader.nested(
         title: const Text('Events'),
-        prefixActions: [
+        prefixes: [
           FHeaderAction.back(
             onPress: () {
               // Check if the current route can be popped
@@ -52,15 +52,15 @@ class _AdminEventsPageState extends State<AdminEventsPage> {
             },
           ),
         ],
-        suffixActions: [
+        suffixes: [
           FHeaderAction(
-            icon: FIcon(FAssets.icons.search),
+            icon: const Icon(FIcons.search),
             onPress: () {
               // Add search functionality here
             },
           ),
           FHeaderAction(
-            icon: FIcon(FAssets.icons.plus),
+            icon: const Icon(FIcons.plus),
             onPress: () {
               // Navigate to the Create Event Page
               Navigator.push(
@@ -71,7 +71,7 @@ class _AdminEventsPageState extends State<AdminEventsPage> {
           ),
         ],
       ),
-      content: Center(
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -103,19 +103,19 @@ class _AdminEventsPageState extends State<AdminEventsPage> {
                           children: [
                             const SizedBox(height: 16),
                             _buildDetailRow(
-                              icon: FIcon(FAssets.icons.calendar),
+                              icon: Icon(FIcons.calendar),
                               label: 'Date',
                               value: event['date']!,
                             ),
                             const SizedBox(height: 8),
                             _buildDetailRow(
-                              icon: FIcon(FAssets.icons.clock),
+                              icon: Icon(FIcons.clock),
                               label: 'Time',
                               value: event['time']!,
                             ),
                             const SizedBox(height: 8),
                             _buildDetailRow(
-                              icon: FIcon(FAssets.icons.locate),
+                              icon: Icon(FIcons.locate),
                               label: 'Location',
                               value: event['location']!,
                             ),

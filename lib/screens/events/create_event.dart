@@ -69,7 +69,7 @@ Future<void> _selectDateRange(BuildContext context) async {
     return FScaffold(
       header: FHeader.nested(
         title: const Text('Create Event'),
-        prefixActions: [
+        prefixes: [
           FHeaderAction.back(
             onPress: () {
               Navigator.pop(context);
@@ -77,7 +77,7 @@ Future<void> _selectDateRange(BuildContext context) async {
           ),
         ],
       ),
-      content: Padding(
+      child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

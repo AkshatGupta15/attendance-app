@@ -6,16 +6,17 @@ import 'package:attendance_app/screens/admin_schedule.dart';
 import 'package:attendance_app/screens/event_info.dart';
 import 'package:attendance_app/screens/events/create_event.dart';
 import 'package:attendance_app/screens/events/create_sub_event.dart';
+import 'package:attendance_app/screens/user/map_page.dart';
 import 'package:attendance_app/screens/new_page.dart';
-import 'package:attendance_app/screens/user_dashboard.dart';
+import 'package:attendance_app/screens/user/user_dashboard.dart';
 import 'package:attendance_app/screens/admin_dashboard.dart';
-import 'package:attendance_app/screens/user_events.dart';
+import 'package:attendance_app/screens/user/user_events.dart';
 import 'package:attendance_app/screens/capture_pic.dart';
 import 'package:attendance_app/screens/login_page.dart';
 import 'package:attendance_app/screens/registration.dart';
 import 'package:attendance_app/screens/profile.dart';
 import 'package:attendance_app/screens/location_page.dart';
-import 'package:attendance_app/services/store.dart';
+import 'package:attendance_app/screens/user/user_events_screen.dart';
 import 'package:attendance_app/src/shared/data.dart';
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String initialRoute = "/adminDashboard"; // Default route
+  String initialRoute = "/newpage"; // Default route
 
   @override
   void initState() {
@@ -72,6 +73,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ShadApp.custom(
+      themeMode: ThemeMode.light,
       appBuilder: (context, theme) => GetMaterialApp(
         builder: (context, child) => FTheme(
           data: FThemes.zinc.light, // Use Forui's light theme
@@ -105,6 +107,8 @@ class _MyAppState extends State<MyApp> {
           '/adminevents': (context) =>  AdminEventsPage(),
           '/adminschedule': (context) =>  AdminSchedule(),
           '/popover': (context) => const PopoverPage(),
+          '/map': (context) => const MapPage(),
+          '/userEvent': (context) => const UserEventsPage(),
         },
         initialRoute: initialRoute, // Set the initial route dynamically
       ),

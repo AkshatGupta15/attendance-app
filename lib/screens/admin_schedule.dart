@@ -15,7 +15,7 @@ class _AdminScheduleState extends State<AdminSchedule> {
     return FScaffold(
       header: FHeader.nested(
         title: const Text('Events'),
-        prefixActions: [
+        prefixes: [
           FHeaderAction.back(onPress: () {
              // Check if the current route can be popped
               if (Navigator.of(context).canPop()) {
@@ -29,18 +29,18 @@ class _AdminScheduleState extends State<AdminSchedule> {
               }
           }),
         ],
-        suffixActions: [
+        suffixes: [
           FHeaderAction(
-            icon: FIcon(FAssets.icons.search),
+            icon: const  Icon(FIcons.search) ,
             onPress: () {},
           ),
           FHeaderAction(
-            icon: FIcon(FAssets.icons.plus),
+            icon: const  Icon(FIcons.plus) ,
             onPress: () {},
           ),
         ],
       ),
-      content: SingleChildScrollView(
+      child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(

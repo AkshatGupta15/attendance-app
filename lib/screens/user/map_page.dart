@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
-import 'package:attendance_app/location/event_service.dart';
+import 'package:attendance_app/services/event_service.dart';
 import 'package:attendance_app/model/event.dart';
 import 'package:flutter/material.dart';
 import 'package:forui/forui.dart';
@@ -138,6 +138,14 @@ class _MapPageState extends State<MapPage> {
   void _fetchEvent() async {
     try {
       Event fetchedEvent = await EventService().fetchEvent('1');
+      if (event != null && _currentPosition != null) {
+        distance = Geolocator.distanceBetween(
+          _currentPosition!.latitude,
+          _currentPosition!.longitude,
+          event!.location.latitude,
+          event!.location.longitude,
+        );
+      }
       setState(() {
         event = fetchedEvent;
         _initialLocation = CameraPosition(
@@ -160,7 +168,7 @@ class _MapPageState extends State<MapPage> {
     return FScaffold(
       header: FHeader.nested(
         title: const Text('Mark Attendance'),
-        prefixActions: [
+        prefixes: [
           FHeaderAction.back(
             onPress: () {
               if (Navigator.of(context).canPop()) {
@@ -169,18 +177,18 @@ class _MapPageState extends State<MapPage> {
             },
           ),
         ],
-        suffixActions: [
+        suffixes: [
           FHeaderAction(
-            icon: FIcon(FAssets.icons.search),
+            icon: const  Icon(FIcons.search) ,
             onPress: () {},
           ),
           FHeaderAction(
-            icon: FIcon(FAssets.icons.plus),
+            icon: const  Icon(FIcons.plus) ,
             onPress: () {},
           ),
         ],
       ),
-      content: _initialLocation == null
+      child: _initialLocation == null
           ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
               child: Padding(
@@ -188,6 +196,7 @@ class _MapPageState extends State<MapPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(height: screenHeight * 0.02),
                     Container(
                       width: screenWidth,
                       child: FCard(
@@ -275,7 +284,7 @@ class _MapPageState extends State<MapPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: screenHeight * 0.02),
+                    SizedBox(height: screenHeight * 0.03),
                     SizedBox(
                       width: screenWidth,
                       height: screenHeight * 0.4,
@@ -328,10 +337,16 @@ class _MapPageState extends State<MapPage> {
                       prefix: _markingAttendance
                           ? const CircularProgressIndicator()
                           : null,
-                      label: distance < _eventRadius
-                          ? const Text('Mark Attendance')
-                          : const Text('Not in Event Location'),
-                      onPress: distance < _eventRadius ? _markAttendance : null,
+                      child: event != null && _currentPosition != null
+                          ? const Text('Loading...')
+                          : distance < _eventRadius
+                              ? const Text('Mark Attendance')
+                              : const Text('Not in Event Location'),
+                      onPress: event != null && _currentPosition != null
+                          ? distance < _eventRadius
+                              ? _markAttendance
+                              : null
+                          : null,
                     ),
                   ],
                 ),

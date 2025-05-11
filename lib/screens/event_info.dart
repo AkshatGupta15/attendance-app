@@ -26,22 +26,22 @@ class EventInfoPage extends StatelessWidget {
     return FScaffold(
       header: FHeader.nested(
         title: const Text('Event Details'),
-        prefixActions: [
+        prefixes: [
           FHeaderAction.back(
             onPress: () {
               Navigator.pop(context);
             },
           ),
         ],
-        suffixActions: [
+        suffixes: [
           FHeaderAction(
-            icon: FIcon(FAssets.icons.search),
+            icon: Icon(FIcons.search),
             onPress: () {
               // Add search functionality here
             },
           ),
           FHeaderAction(
-            icon: FIcon(FAssets.icons.plus),
+            icon: Icon(FIcons.plus),
             onPress: () {
               // Add functionality to create a sub-event or related action
               Navigator.push(
@@ -52,7 +52,7 @@ class EventInfoPage extends StatelessWidget {
           ),
         ],
       ),
-      content: Center(
+      child: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -70,19 +70,19 @@ class EventInfoPage extends StatelessWidget {
                   children: [
                     const SizedBox(height: 16),
                     _buildDetailRow(
-                      icon: FIcon(FAssets.icons.calendar),
+                      icon: Icon(FIcons.calendar),
                       label: 'Date',
                       value: eventDetails['date']!,
                     ),
                     const SizedBox(height: 8),
                     _buildDetailRow(
-                      icon: FIcon(FAssets.icons.clock),
+                      icon: Icon(FIcons.clock),
                       label: 'Time',
                       value: eventDetails['time']!,
                     ),
                     const SizedBox(height: 8),
                     _buildDetailRow(
-                      icon: FIcon(FAssets.icons.locate),
+                      icon: Icon(FIcons.locate),
                       label: 'Location',
                       value: eventDetails['location']!,
                     ),
@@ -144,19 +144,19 @@ class EventInfoPage extends StatelessWidget {
                           children: [
                             const SizedBox(height: 16),
                             _buildDetailRow(
-                              icon: FIcon(FAssets.icons.calendar),
+                              icon: Icon(FIcons.calendar),
                               label: 'Date',
                               value: subEvent['date']!,
                             ),
                             const SizedBox(height: 8),
                             _buildDetailRow(
-                              icon: FIcon(FAssets.icons.clock),
+                              icon: Icon(FIcons.clock),
                               label: 'Time',
                               value: subEvent['time']!,
                             ),
                             const SizedBox(height: 8),
                             _buildDetailRow(
-                              icon: FIcon(FAssets.icons.locate),
+                              icon: Icon(FIcons.locate),
                               label: 'Location',
                               value: subEvent['location']!,
                             ),
